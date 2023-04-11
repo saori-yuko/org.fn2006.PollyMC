@@ -16,3 +16,4 @@ cd org.fn2006.PollyMC
 flatpak-builder build *.yml --user --force-clean --install
 ```
 #### Enjoy! :)
+https://github.com/fn2006/PollyMC
