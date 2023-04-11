@@ -7,7 +7,7 @@ flatpak install runtime/org.freedesktop.Sdk.Extension.openjdk8/$(uname -m)/22.08
                 runtime/org.kde.Platform/$(uname -m)/5.15-22.08
 ```
 ```                
-git clone https://github.com/saori-yuko/org.fn2006.PollyMC.git
+git clone --recursive https://github.com/saori-yuko/org.fn2006.PollyMC.git
 ```
 ```
 cd org.fn2006.PollyMC
