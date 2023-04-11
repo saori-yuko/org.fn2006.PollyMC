@@ -1,7 +1,18 @@
-# UWU
-`git clone <this repo>`
 
-`cd <this repo name>`
 
-`flatpak-builder build *.yml --user --force-clean --install`
+#### UWU ~ `flatpak-builder` required from distro
+```
+flatpak install runtime/org.freedesktop.Sdk.Extension.openjdk8/x86_64/22.08 \
+                runtime/org.freedesktop.Sdk.Extension.openjdk17/x86_64/22.08 \
+                runtime/org.kde.Platform/x86_64/5.15-22.08
+```
+```                
+git clone https://github.com/saori-yuko/org.fn2006.PollyMC.git
+```
+```
+cd org.fn2006.PollyMC
+```
+```
+flatpak-builder build *.yml --user --force-clean --install
+```
 #### Enjoy! :)
