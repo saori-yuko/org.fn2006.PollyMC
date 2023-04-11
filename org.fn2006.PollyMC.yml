@@ -1,4 +1,4 @@
-id: org.prismlauncher.PrismLauncher
+id: org.fn2006.PollyMC
 runtime: org.kde.Platform
 runtime-version: "5.15-22.08"
 sdk: org.kde.Sdk
@@ -13,7 +13,7 @@ add-extensions:
     autodelete: false
     directory: utils/gamescope
 
-command: prismlauncher
+command: pollylauncher
 finish-args:
   - --share=ipc
   - --socket=x11
@@ -21,15 +21,13 @@ finish-args:
   - --device=all
   - --share=network
   - --socket=pulseaudio
-    # for Discord RPC mods
-  - --filesystem=xdg-run/app/com.discordapp.Discord:create
     # Mod drag&drop
   - --filesystem=xdg-download:ro
 
 modules:
   # Might be needed by some Controller mods (see https://github.com/isXander/Controlify/issues/31)
   - shared-modules/libusb/libusb.json
-  - name: prismlauncher
+  - name: pollymc
     buildsystem: cmake-ninja
     config-opts:
       - -DLauncher_BUILD_PLATFORM=flatpak
@@ -40,13 +38,8 @@ modules:
         JAVA_COMPILER: /usr/lib/sdk/openjdk17/jvm/openjdk-17/bin/javac
     sources:
       - type: archive
-        url: https://github.com/PrismLauncher/PrismLauncher/releases/download/6.3/PrismLauncher-6.3.tar.gz
-        sha256: fc1896df6422248dbd767d4a82066fe6044ae104354ebf75fc5ae92252f2fb1a
-        x-checker-data:
-          type: anitya
-          project-id: 301949
-          stable-only: true
-          url-template: https://github.com/PrismLauncher/PrismLauncher/releases/download/$version/PrismLauncher-$version.tar.gz
+        url: https://github.com/fn2006/PollyMC/releases/download/6.3/PollyMC-6.3.tar.gz
+        sha256: c96ca0d1a6651875b9feec064852b396deaa853bff84658f1faea1e290d22c04
   - name: openjdk
     buildsystem: simple
     build-commands:
@@ -77,7 +70,6 @@ modules:
         url: https://github.com/FeralInteractive/gamemode
         tag: "1.7"
         commit: 4dc99dff76218718763a6b07fc1900fa6d1dafd9
-        
   - name: zlib
     buildsystem: cmake-ninja
     sources:
@@ -90,10 +82,9 @@ modules:
     build-commands:
       - mkdir -p /app/utils/gamescope
       - install -Dm755 prime-run /app/bin/prime-run
-      - mv /app/bin/prismlauncher /app/bin/prismrun
-      - install -Dm755 prismlauncher /app/bin/prismlauncher
+      - install -Dm755 pollylauncher /app/bin/pollylauncher
     sources:
       - type: file
         path: prime-run
       - type: file
-        path: prismlauncher
+        path: pollylauncher
